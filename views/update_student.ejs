@@ -1,0 +1,59 @@
+<!-- include header -->
+<%-include('partials/_header') %>
+<!-- /include header -->
+
+<!-- Main Site -->
+<main id="site-main">
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/viewAllStudents"><i class="fas fa-angle-double-left"></i> All Students</a>
+      </div>
+    </div>
+
+    <div class="form-title text-center">
+      <h2 class="text-dark">Update Student</h2>
+      <span class="form-text-light"
+        >Use the below form to update student details</span
+      >
+    </div>
+
+    <!-- form handling -->
+    <form action="/api/students" method="POST" id="update_student">
+      <div class="new_student">
+        <div class="form-group">
+          <label for="rollNumber" class="form-text-light">Roll No</label>
+          <input type="hidden" name="id" value="<%=student._id%>"/>
+          <input type="number" name="rollNumber" value="<%=student.rollNumber%>"/>
+        </div>
+        <div class="form-group">
+          <label for="name" class="form-text-light">Name</label>
+          <input type="text" name="name" value="<%=student.name%>"/>
+        </div>
+        <div class="form-group">
+          <label for="dob" class="form-text-light">D.O.B</label>
+          <input type="date" name="dob" value="<%= formatDate(student.dob) %>"/>
+        </div>
+        <div class="form-group">
+          <label for="score" class="form-text-light">Score</label>
+          <input type="number" name="score" value="<%=student.score%>"/>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-next update">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<!-- include footer -->
+<%-include('partials/_footer') %>
+<!-- /include footer -->
+
+<% function formatDate(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+} %>

@@ -1,0 +1,27 @@
+<!-- include header -->
+<%-include('partials/_header') %>
+<!-- /include header -->
+
+ <!-- Main Site -->
+ <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <div class="filter">
+                <a href="/viewAllStudents"><i class="fas fa-angle-double-left"></i> All Students</a>
+            </div>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">New Student</h2>
+            <span class="form-text-light">Use the below form to add new student</span>
+        </div>
+
+        <!-- add Student Form -->
+        <%-include('partials/_form') %>
+            
+        </div>
+    </main>
+
+<!-- include footer -->
+<%-include('partials/_footer') %>
+<!-- /include footer -->

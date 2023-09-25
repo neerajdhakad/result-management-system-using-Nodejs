@@ -1,0 +1,25 @@
+<% for(var i =0;i<students.length;i++){ %>
+<tr>
+  <td><%= students[i].rollNumber %></td>
+  <td><%= students[i].name %></td>
+  <td><%= formatDate(students[i].dob)  %></td>
+  <td><%= students[i].score %></td>
+  <td>
+    <a href="/update-student?id=<%= students[i]._id %>" class="btn border-shadow update">
+      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+    </a>
+    <a class="btn border-shadow delete" data-id="<%= students[i]._id %>">
+      <span class="text-gradient"><i class="fa-solid fa-trash"></i></span>
+    </a>
+  </td>
+</tr>
+<% } %>
+
+
+<% function formatDate(dateString) {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+} %>

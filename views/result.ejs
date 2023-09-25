@@ -1,0 +1,45 @@
+<!-- include header -->
+<%-include('partials/_header') %>
+<!-- /include header -->
+
+<div class="container">
+  <div class="mb-3 my-3">
+    <a href="/login"><i class="fas fa-angle-double-left"></i> Back</a>
+  </div>
+
+  <h2 class="mb-4">Result</h2>
+  <form>
+  <div class="card" >
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Name: </strong><%= student.name %></p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Roll Number: </strong><%= student.rollNumber %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Date of Birth: </strong><%= formatDate(student.dob) %></p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Score: </strong><%= student.score %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+<!-- include footer -->
+<%-include('partials/_footer') %>
+<!-- /include footer -->
+
+<% function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+} %>
